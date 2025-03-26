@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">Domus</div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html" class="nav-link">Головна</a></li>
+          <li><a href="catalog.html" class="nav-link">Каталог</a></li>
+          <li><a href="about.html" class="nav-link active">Про нас</a></li>
+          <li><a href="contact.html" class="nav-link">Контакти</a></li>
+        </ul>
+      </nav>
+      <div class="cart" id="cart-btn">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-counter">0</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="about-section">
+      <div class="container">
+        <h1 class="page-title">Наша історія</h1>
+        
+        <div class="about-content">
+          <div class="about-text">
+            <p>Domus - це сімейна мануфактура з виробництва меблів, заснована у 2010 році. Ми почали з невеликої майстерні, а сьогодні наша продукція прикрашає тисячі домівок по всій Україні.</p>
+            
+            <h2>Наша філософія</h2>
+            <p>Ми віримо, що меблі повинні поєднувати в собі три ключові якості:</p>
+            <ul class="about-features">
+              <li>Естетику сучасного дизайну</li>
+              <li>Надійність та довговічність</li>
+              <li>Функціональність для повсякденного життя</li>
+            </ul>
+          </div>
+          
+          <div class="about-image">
+            <img src="images/about-showroom.jpg" alt="Наш шоурум">
+          </div>
+        </div>
+        
+        <div class="team-section">
+          <h2>Наша команда</h2>
+          <div class="team-grid">
+            <div class="team-member">
+              <img src="images/team-1.jpg" alt="Дизайнер">
+              <h3>Олександра</h3>
+              <p>Головний дизайнер</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Domus.</p>
+    </div>
+  </footer>
+
+  <script src="scripts/cart.js" type="module"></script>
+  <script src="scripts/main.js" type="module"></script>
+</body>
+</html>
