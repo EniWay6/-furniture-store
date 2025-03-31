@@ -1,0 +1,56 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Диван 'Модерн'",
+            "category": "sofas",
+            "price": 8500,
+            "material": "Шкіра",
+            "rating": 4.8,
+            "image": "sofa-1.jpg"
+          },
+          {
+            "id": 2,
+            "name": "Обідній стіл 'Дуб'",
+            "category": "tables",
+            "price": 4500,
+            "material": "Дерево",
+            "rating": 4.9,
+            "image": "table-1.jpg"
+          },
+          {
+            "id": 3,
+            "name": "Крісло 'Ерго'",
+            "category": "chairs",
+            "price": 2200,
+            "material": "Текстиль",
+            "rating": 4.7,
+            "image": "chair-1.jpg"
+          },
+          {
+            "id": 4,
+            "name": "Ліжко 'Комфорт'",
+            "category": "beds",
+            "price": 6800,
+            "material": "Метал, дерево",
+            "rating": 4.8,
+            "image": "bed-1.jpg"
+          },
+          {
+            "id": 5,
+            "name": "Шафа-купе 'Мінімаліст'",
+            "category": "wardrobes",
+            "price": 9200,
+            "material": "ДСП, дзеркало",
+            "rating": 4.9,
+            "image": "wardrobe-1.jpg"
+          }
+    ],
+    "categories": [
+      {"id": "sofas", "name": "Дивани"},
+      {"id": "tables", "name": "Столи"},
+      {"id": "chairs", "name": "Стільці"},
+      {"id": "beds", "name": "Ліжка"},
+      {"id": "wardrobes", "name": "Шафи"}
+    ]
+  }

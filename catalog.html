@@ -28,27 +28,50 @@
   <main class="main">
     <section class="catalog-page">
       <div class="container">
-        <h1 class="page-title">Наш каталог</h1>
+        <h1 class="page-title">Каталог меблів</h1>
         
-        <div class="advanced-filters">
-          <div class="filter-group">
-            <h3>Ціна</h3>
-            <div class="price-range">
-              <input type="range" id="price-range" min="0" max="20000" step="500">
-              <div class="price-values">
-                <span id="min-price">0</span> ₴ - <span id="max-price">20000</span> ₴
+        <div class="catalog-controls">
+          <div class="filters">
+            <div class="filter-group">
+              <h3>Категорії</h3>
+              <select id="category-filter" class="filter-select">
+                <option value="all">Усі категорії</option>
+                <option value="sofas">Дивани</option>
+                <option value="tables">Столи</option>
+                <option value="chairs">Стільці</option>
+                <option value="beds">Ліжка</option>
+                <option value="wardrobes">Шафи</option>
+              </select>
+            </div>
+            
+            <div class="filter-group">
+              <h3>Ціновий діапазон</h3>
+              <div class="price-slider">
+                <input type="range" id="price-max" min="0" max="20000" value="20000" step="500">
+                <div class="price-values">
+                  До <span id="max-price">20000</span> ₴
+                </div>
               </div>
             </div>
           </div>
           
-          <div class="filter-group">
-            <h3>Категорії</h3>
-            <div class="category-filters" id="category-filters">
-            </div>
+          <div class="search-sort">
+            <input type="text" id="search-input" placeholder="Пошук за назвою..." class="search-input">
+            <select id="sort-by" class="sort-select">
+              <option value="default">За замовчуванням</option>
+              <option value="price-asc">Від дешевих до дорогих</option>
+              <option value="price-desc">Від дорогих до дешевих</option>
+              <option value="rating">За рейтингом</option>
+            </select>
           </div>
         </div>
         
-        <div class="products-grid" id="products-container">
+        <div class="products-grid" id="products-container"></div>
+        
+        <div class="pagination" id="pagination">
+          <button class="pagination-btn" id="prev-page">←</button>
+          <div class="page-numbers" id="page-numbers"></div>
+          <button class="pagination-btn" id="next-page">→</button>
         </div>
       </div>
     </section>
@@ -69,12 +92,11 @@
 
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 Domus.</p>
+      <p>&copy; 2023 Domus.</p>
     </div>
   </footer>
 
-  <script src="scripts/products.js" type="module"></script>
-  <script src="scripts/cart.js" type="module"></script>
-  <script src="scripts/main.js" type="module"></script>
+  <script src="scripts/cart.js"></script>
+  <script src="scripts/catalog.js"></script>
 </body>
 </html>
