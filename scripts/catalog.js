@@ -1,4 +1,3 @@
-// Завантаження даних з JSON
 async function loadProducts() {
     try {
         const response = await fetch('data/products.json');
@@ -9,8 +8,6 @@ async function loadProducts() {
         return { products: [], categories: [] };
     }
 }
-
-// Відображення товарів
 async function renderProducts(products) {
     const container = document.getElementById('products-container');
     if (!products.length) {
@@ -33,15 +30,12 @@ async function renderProducts(products) {
         </div>
     `).join('');
 }
-
-// Фільтрація та сортування товарів
 async function filterAndSortProducts() {
     const { products } = await loadProducts();
     const category = document.getElementById('category-filter').value;
     const search = document.getElementById('search-input').value.toLowerCase();
     const sortBy = document.getElementById('sort-by').value;
     const priceMax = document.getElementById('price-max').value;
-
     let filteredProducts = products.filter(product => {
         const matchesCategory = category === 'all' || product.category === category;
         const matchesSearch = product.name.toLowerCase().includes(search) || 
@@ -49,7 +43,6 @@ async function filterAndSortProducts() {
         const matchesPrice = product.price <= priceMax;
         return matchesCategory && matchesSearch && matchesPrice;
     });
-
     if (sortBy === 'price-asc') {
         filteredProducts.sort((a, b) => a.price - b.price);
     } else if (sortBy === 'price-desc') {
@@ -57,21 +50,15 @@ async function filterAndSortProducts() {
     } else if (sortBy === 'rating') {
         filteredProducts.sort((a, b) => b.rating - a.rating);
     }
-
     renderProducts(filteredProducts);
 }
-
-// Ініціалізація
 document.addEventListener('DOMContentLoaded', async () => {
     const { categories } = await loadProducts();
     const categorySelect = document.getElementById('category-filter');
-    
     categories.forEach(category => {
         categorySelect.innerHTML += `<option value="${category.id}">${category.name}</option>`;
     });
-    
     await filterAndSortProducts();
-    
     document.getElementById('category-filter').addEventListener('change', filterAndSortProducts);
     document.getElementById('search-input').addEventListener('input', filterAndSortProducts);
     document.getElementById('sort-by').addEventListener('change', filterAndSortProducts);
