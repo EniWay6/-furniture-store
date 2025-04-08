@@ -7,6 +7,7 @@ const cart = {
       this.setupEventListeners();
       this.renderCartItems();
     },
+
     async loadProductsData() {
       try {
         const response = await fetch('data/products.json');
@@ -17,6 +18,7 @@ const cart = {
         this.productsData = { products: [] };
       }
     },
+
     async add(productId) {
       await this.ensureProductsLoaded();
       const product = this.productsData.products.find(p => p.id === productId);
@@ -40,11 +42,13 @@ const cart = {
       this.updateUI();
       this.showAddNotification(product.name);
     },
+
     remove(productId) {
       this.items = this.items.filter(item => item.id !== productId);
       this.save();
       this.updateUI();
     },
+
     updateQuantity(productId, change) {
       const item = this.items.find(item => item.id === productId);
       if (!item) return;
@@ -56,13 +60,16 @@ const cart = {
         this.updateUI();
       }
     },
+
     save() {
       localStorage.setItem('cart', JSON.stringify(this.items));
     },
+
     updateUI() {
       this.updateCounter();
       this.renderCartItems();
     },
+
     updateCounter() {
       const totalItems = this.items.reduce((sum, item) => sum + item.quantity, 0);
       const counter = document.querySelector('.cart-counter');
@@ -71,6 +78,7 @@ const cart = {
         counter.style.visibility = totalItems > 0 ? 'visible' : 'hidden';
       }
     },
+
     renderCartItems() {
       const container = document.getElementById('cart-items');
       const totalElement = document.getElementById('total-price');
@@ -106,6 +114,7 @@ const cart = {
       }).join('');
       totalElement.textContent = total.toFixed(2);
     },
+
     showAddNotification(productName) {
       const notification = document.createElement('div');
       notification.className = 'cart-notification';
@@ -121,11 +130,13 @@ const cart = {
         }, 2000);
       }, 100);
     },
+
     async ensureProductsLoaded() {
       if (!this.productsData) {
         await this.loadProductsData();
       }
     },
+
     setupEventListeners() {
       document.getElementById('cart-btn')?.addEventListener('click', () => this.toggleCart());
       document.querySelector('.modal .close')?.addEventListener('click', () => this.toggleCart());
@@ -164,6 +175,7 @@ const cart = {
         this.toggleCart();
       });
     },
+
     toggleCart() {
       const modal = document.getElementById('cart-modal');
       if (modal) {
@@ -172,6 +184,7 @@ const cart = {
       }
     }
   };
+  
   document.addEventListener('DOMContentLoaded', () => {
     cart.init();
   });

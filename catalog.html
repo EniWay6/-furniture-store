@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>Каталог</title>
 </head>
 <body>
   <header class="header">
@@ -28,7 +29,27 @@
     <section class="catalog-page">
       <div class="container">
         <h1 class="page-title">Каталог меблів</h1>
-        
+
+        <button id="admin-login-btn">Вхід для адміністратора</button>
+        <div id="admin-login" style="display:none">
+          <input type="text" id="admin-username" placeholder="Логін">
+          <input type="password" id="admin-password" placeholder="Пароль">
+          <button id="submit-login">Увійти</button>
+        </div>
+
+        <div id="admin-panel" style="display:none">
+          <h3>Адмін панель</h3>
+          <form id="add-product-form">
+            <input type="text" id="new-name" placeholder="Назва" required>
+            <input type="text" id="new-material" placeholder="Матеріал" required>
+            <input type="number" id="new-price" placeholder="Ціна" required>
+            <input type="text" id="new-image" placeholder="Ім'я зображення (image.jpg)" required>
+            <input type="text" id="new-category" placeholder="Категорія (sofas, tables...)" required>
+            <button type="submit">Додати товар</button>
+          </form>
+          <button id="logout-admin">Вийти з акаунта</button>
+        </div>
+
         <div class="catalog-controls">
           <div class="filters">
             <div class="filter-group">
@@ -42,18 +63,15 @@
                 <option value="wardrobes">Шафи</option>
               </select>
             </div>
-            
             <div class="filter-group">
               <h3>Ціновий діапазон</h3>
               <div class="price-slider">
                 <input type="range" id="price-max" min="0" max="20000" value="20000" step="500">
-                <div class="price-values">
-                  До <span id="max-price">20000</span> ₴
-                </div>
+                <div class="price-values">До <span id="max-price">20000</span> ₴</div>
               </div>
             </div>
           </div>
-          
+
           <div class="search-sort">
             <input type="text" id="search-input" placeholder="Пошук за назвою..." class="search-input">
             <select id="sort-by" class="sort-select">
@@ -64,9 +82,8 @@
             </select>
           </div>
         </div>
-        
+
         <div class="products-grid" id="products-container"></div>
-        
         <div class="pagination" id="pagination">
           <button class="pagination-btn" id="prev-page">←</button>
           <div class="page-numbers" id="page-numbers"></div>
